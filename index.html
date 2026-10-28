@@ -8,14 +8,14 @@
 <meta name="theme-color" content="#0b0b10">
 <link rel="canonical" href="https://adil-ahamed-b.vercel.app">
 <meta property="og:title" content="Adil Ahamed B | Aspiring Cloud &amp; DevSecOps Engineer">
-<meta property="og:description" content="DevSecOps CI/CD gates, AWS, Linux, and Container Security with production-grade projects. Open to entry-level Cloud and DevOps roles.">
+<meta property="og:description" content="DevSecOps CI/CD gates, AWS, Linux, and Container Security.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://adil-ahamed-b.vercel.app">
 <style>
   :root{
     --bg:#0b0b10; --surface:#12121a; --surface-2:#171722; --border:#2a2a35;
     --text:#e5e7eb; --muted:#a3b0c2; --white:#fff;
-    --lime:#bef264; --sky:#38bdf8; --violet:#a78bfa; --green:#4ade80; --red:#f87171;
+    --lime:#bef264; --sky:#38bdf8; --violet:#a78bfa; --green:#4ade80;
     --radius:18px; --maxw:1040px;
   }
   *{box-sizing:border-box}
@@ -31,8 +31,8 @@
   .skip{position:absolute;left:-999px;top:8px;background:var(--lime);color:#000;padding:10px 16px;border-radius:8px;z-index:200}
   .skip:focus{left:8px}
 
-  /* Header / nav */
-  header{position:sticky;top:0;z-index:100;background:rgba(11,11,16,.88);backdrop-filter:blur(10px);border-bottom:1px solid #1c1c26}
+  /* Header */
+  header{position:sticky;top:0;z-index:100;background:rgba(11,11,16,.92);backdrop-filter:blur(10px);border-bottom:1px solid #1c1c26}
   .nav{max-width:var(--maxw);margin:auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
   .logo{font-family:ui-monospace,Consolas,monospace;color:var(--white);text-decoration:none;font-weight:700;letter-spacing:.04em}
   .logo span{color:var(--lime)}
@@ -57,3 +57,372 @@
   .grad2{background:linear-gradient(90deg,var(--violet),var(--sky));-webkit-background-clip:text;background-clip:text;color:transparent}
   .lead{font-size:1.15rem;max-width:680px}
   @media(min-width:700px){h1{font-size:3.3rem}h2{font-size:2.2rem}}
+
+  /* Buttons & badges */
+  .badge{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border:1px solid var(--border);border-radius:999px;
+    font-family:ui-monospace,Consolas,monospace;font-size:.76rem;letter-spacing:.16em;color:var(--lime);background:var(--surface)}
+  .badge::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--lime)}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;margin:6px 8px 6px 0;border-radius:999px;
+    border:1px solid var(--border);color:var(--white);text-decoration:none;background:var(--surface);transition:.2s;font-size:0.95rem}
+  .btn:hover{border-color:var(--sky);transform:translateY(-2px)}
+  .btn.main{border-color:#3b4a2a}
+  .btn.main::before{content:"";width:10px;height:10px;border-radius:50%;background:#22c55e}
+  .btn.dash{background:linear-gradient(90deg,#0284c7,#0369a1);border-color:#38bdf8;color:#fff;font-weight:600}
+  .btn-row{margin-top:22px}
+  .btn-row .label{margin:26px 0 6px}
+
+  /* Grid & Cards */
+  .grid{display:grid;gap:18px}
+  @media(min-width:700px){.grid.cols-2{grid-template-columns:repeat(2,1fr)}.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+  .card{padding:24px;border-radius:var(--radius);border:1px solid #23232e;background:linear-gradient(135deg,#111118,#1b1030);transition:.2s;display:flex;flex-direction:column}
+  .card:hover{border-color:var(--sky);transform:translateY(-3px)}
+  .card.b{background:linear-gradient(135deg,#111118,#0e2230)}
+  .card.c{background:linear-gradient(135deg,#111118,#12281f)}
+  .tags{margin-top:auto;padding-top:8px;font-family:ui-monospace,Consolas,monospace;font-size:.8rem;color:var(--sky)}
+  .meta{color:var(--muted);font-size:.95rem}
+
+  /* Flagship Card */
+  .card.featured{
+    grid-column:1/-1;
+    padding:30px 24px;
+    background:linear-gradient(135deg,#101422,#0b1a26);
+    border:1px solid #38bdf888;
+  }
+  .spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:18px 0 14px;padding:14px;background:rgba(0,0,0,.4);border:1px solid #1f2937;border-radius:12px}
+  .spec-item{font-family:ui-monospace,Consolas,monospace;font-size:.82rem}
+  .spec-item span{display:block;color:var(--muted);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px}
+  .spec-item strong{color:var(--white)}
+
+  /* Skills */
+  .group{background:var(--surface);border:1px solid #1f1f2a;border-radius:var(--radius);padding:20px}
+  .group h3{font-size:1.02rem;margin-bottom:12px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin:0;padding:0;list-style:none}
+  .chip{padding:7px 14px;border:1px solid var(--border);border-radius:999px;background:var(--surface-2);color:var(--white);font-size:.9rem}
+  .note{font-size:.92rem;color:var(--muted);margin-top:16px}
+
+  /* Projects Details */
+  .project h4{margin:12px 0 4px;color:var(--lime);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-family:ui-monospace,Consolas,monospace}
+  .project ul{margin:0 0 6px;padding-left:18px;color:#cbd5e1;font-size:.98rem}
+  .project .btn{align-self:flex-start;margin:16px 8px 0 0}
+
+  /* Certs */
+  .certs{list-style:none;margin:0;padding:0}
+  .cert{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid #1f1f2a}
+  .cert:last-child{border-bottom:0}
+  .cert::before{content:"✓";color:var(--green);font-weight:700}
+  .cert small{display:block;color:var(--muted);font-size:.9rem}
+
+  /* Contact */
+  .contact-box{background:linear-gradient(135deg,#111118,#0e2230);border:1px solid #23232e;border-radius:24px;padding:34px 24px}
+
+  footer{border-top:1px solid #1c1c26;text-align:center;color:#94a3b8;padding:36px 20px;font-size:.92rem}
+  footer nav a{color:#cbd5e1;margin:0 10px;text-decoration:none}
+  footer nav a:hover{color:var(--sky);text-decoration:underline}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="#top">adil<span>.</span>ahamed</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle Menu">Menu</button>
+    <nav>
+      <ul id="navList">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#learning">Learning</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section id="top">
+  <span class="badge">AVAILABLE · IMMEDIATELY</span>
+  <h1>Adil Ahamed B<br><span class="grad">Aspiring Cloud &amp; DevSecOps Engineer</span></h1>
+  <p class="lead"><strong style="color:#fff">DevSecOps | Container Security | CI/CD Policy Gates | AWS | Linux</strong></p>
+  <p class="lead">B.Sc. Computer Science graduate from Chennai, building automated CI/CD security pipelines. Preparing for entry-level DevSecOps, Cloud Support, and DevOps roles.</p>
+
+  <div class="btn-row">
+    <a class="btn main" href="#contact">Open to Work</a>
+    <a class="btn" href="#projects">View Projects</a>
+    <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
+
+    <p class="label">FIND ME</p>
+    <a class="btn" href="https://www.linkedin.com/in/adil-ahamed-b-13b935279" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a class="btn" href="https://github.com/adilahamedwork-oss" target="_blank" rel="noopener">GitHub ↗</a>
+    <a class="btn" href="mailto:adil.ahamedwork@gmail.com">Email</a>
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section style="padding-top:0">
+  <div class="grid cols-3">
+    <div class="card"><h3>Automated DevSecOps</h3><p>Deterministic container admission gates in GitHub Actions with live audit dashboards.</p></div>
+    <div class="card b"><h3>Linux &amp; Scripting</h3><p>Bash automation, semver policy engines, Kali Linux, and wargame security labs.</p></div>
+    <div class="card c"><h3>CEH Certified</h3><p>EC-Council Certified Ethical Hacker with hands-on vulnerability analysis experience.</p></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="label">ABOUT</p>
+  <h2>Cloud learner with a <span class="grad">methodical mindset</span></h2>
+  <p>I'm a B.Sc. Computer Science graduate (2025) from The New College, Chennai. I build verifiable cloud and security infrastructure through project-based engineering, documenting deterministic controls, automated testing, and metrics on GitHub.</p>
+  <p>My work combines container security (Docker, Aquasec Trivy), automated CI/CD gating (GitHub Actions), Bash scripting, and core cloud hosting (AWS). I am seeking entry-level DevSecOps, DevOps Intern, or Cloud Support roles.</p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="label">TECHNICAL SKILLS</p>
+  <h2>What I <span class="grad2">work with</span></h2>
+  <div class="grid cols-3">
+    <div class="group"><h3>DevSecOps &amp; CI/CD</h3>
+      <ul class="chips">
+        <li class="chip">GitHub Actions</li>
+        <li class="chip">Docker</li>
+        <li class="chip">Aquasec Trivy (SCA)</li>
+        <li class="chip">Policy-as-Code</li>
+        <li class="chip">GitHub Pages</li>
+      </ul>
+    </div>
+
+    <div class="group"><h3>Cloud</h3>
+      <ul class="chips">
+        <li class="chip">AWS Fundamentals</li>
+        <li class="chip">Amazon S3</li>
+        <li class="chip">Amazon EC2</li>
+        <li class="chip">Vercel</li>
+      </ul>
+    </div>
+
+    <div class="group"><h3>Linux &amp; Scripting</h3>
+      <ul class="chips">
+        <li class="chip">Bash scripting</li>
+        <li class="chip">Python</li>
+        <li class="chip">Kali Linux</li>
+        <li class="chip">Ubuntu</li>
+        <li class="chip">OverTheWire Bandit</li>
+      </ul>
+    </div>
+
+    <div class="group"><h3>Networking</h3>
+      <ul class="chips">
+        <li class="chip">TCP/IP</li>
+        <li class="chip">Cisco Basics</li>
+        <li class="chip">Nmap</li>
+        <li class="chip">Wireshark</li>
+      </ul>
+    </div>
+
+    <div class="group"><h3>Security Fundamentals</h3>
+      <ul class="chips">
+        <li class="chip">CEH (EC-Council)</li>
+        <li class="chip">Threat Modeling</li>
+        <li class="chip">SOC fundamentals</li>
+        <li class="chip">PortSwigger Labs</li>
+      </ul>
+    </div>
+
+    <div class="group"><h3>Next on my list</h3>
+      <ul class="chips">
+        <li class="chip">Kubernetes</li>
+        <li class="chip">Terraform</li>
+        <li class="chip">Prometheus / Grafana</li>
+        <li class="chip">AWS IAM Hardening</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="label">PROJECTS</p>
+  <h2>Hands-on <span class="grad">engineering projects</span></h2>
+  <div class="grid cols-3">
+
+    <!-- FEATURED FLAGSHIP PROJECT -->
+    <article class="card featured project">
+      <span class="tags" style="color:var(--lime);font-weight:bold">★ FLAGSHIP DEVSECOPS PROJECT</span>
+      <h3 style="font-size:1.5rem;margin-top:6px">🛡️ PHP2Shell Sentinel — Verified DevSecOps Defense Pipeline</h3>
+      <p>Automated container security pipeline in GitHub Actions that enforces deterministic admission gating against the PHP2Shell remote code execution vulnerabilities (CVE-2026-109618 &amp; CVE-2026-109619, CVSS 9.2).</p>
+
+      <div class="spec-grid">
+        <div class="spec-item"><span>Target Exploits</span><strong>CVE-2026-109618 / 19</strong></div>
+        <div class="spec-item"><span>Enforcement</span><strong>Deterministic Semver Gate</strong></div>
+        <div class="spec-item"><span>CI Testing</span><strong>Dual-Matrix (+ / - Controls)</strong></div>
+        <div class="spec-item"><span>Audit Status</span><strong>Live on GitHub Pages</strong></div>
+      </div>
+
+      <h4>Technologies</h4>
+      <div class="chips">
+        <span class="chip">GitHub Actions</span>
+        <span class="chip">Docker</span>
+        <span class="chip">Aquasec Trivy</span>
+        <span class="chip">Bash</span>
+        <span class="chip">Python</span>
+        <span class="chip">GitHub Pages</span>
+      </div>
+
+      <h4>Key Highlights</h4>
+      <ul>
+        <li><strong>Deterministic Semver Gate:</strong> Custom Bash engine directly interrogates runtime binaries to block unpatched images independently of scanner feed delays.</li>
+        <li><strong>Dual-Matrix CI Verification:</strong> Automated negative assertions (vulnerable image fails with Exit Code 1) and positive assertions (patched image passes admission).</li>
+        <li><strong>Automated Evidence Aggregation:</strong> Trivy scans and Python telemetry generate a live audit dashboard on GitHub Pages.</li>
+      </ul>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+        <a class="btn dash" href="https://adilahamedwork-oss.github.io/php2shell-sentinel/" target="_blank" rel="noopener">⚡ Live Audit Dashboard ↗</a>
+        <a class="btn" href="https://github.com/adilahamedwork-oss/php2shell-sentinel" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </div>
+    </article>
+
+    <!-- PROJECT 2: AWS S3 -->
+    <article class="card project">
+      <h3>AWS S3 Static Website Hosting</h3>
+      <p>Hosted a static website on Amazon S3 as a hands-on introduction to cloud storage, access policies, and web hosting.</p>
+      <h4>Technologies</h4>
+      <div class="chips"><span class="chip">AWS</span><span class="chip">Amazon S3</span><span class="chip">HTML/CSS</span></div>
+      <h4>What I learned</h4>
+      <ul>
+        <li>How S3 static website hosting and routing work</li>
+        <li>Configuring buckets and fine-grained access permissions</li>
+        <li>Publishing and documenting a cloud project</li>
+      </ul>
+      <a class="btn" href="https://github.com/adilahamedwork-oss" target="_blank" rel="noopener">View on GitHub ↗</a>
+    </article>
+
+    <!-- PROJECT 3: AWS EC2 -->
+    <article class="card b project">
+      <h3>AWS EC2 Cloud Virtual Server</h3>
+      <p>Hands-on project using Amazon EC2 to provision, connect to, and manage a cloud Linux virtual server.</p>
+      <h4>Technologies</h4>
+      <div class="chips"><span class="chip">AWS</span><span class="chip">Amazon EC2</span><span class="chip">Linux</span></div>
+      <h4>What I learned</h4>
+      <ul>
+        <li>Core EC2 concepts, key pairs, and security groups</li>
+        <li>Connecting to and managing a remote Linux host via SSH</li>
+        <li>Operating and managing cloud workloads</li>
+      </ul>
+      <a class="btn" href="https://github.com/adilahamedwork-oss" target="_blank" rel="noopener">View on GitHub ↗</a>
+    </article>
+
+    <!-- PROJECT 4: PORTFOLIO -->
+    <article class="card c project">
+      <h3>Personal Portfolio Website</h3>
+      <p>This website: a responsive, dark-themed portfolio built with plain HTML, CSS, and JavaScript, deployed on Vercel.</p>
+      <h4>Technologies</h4>
+      <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Vercel</span></div>
+      <h4>What I learned</h4>
+      <ul>
+        <li>Continuous deployment from GitHub to Vercel</li>
+        <li>Responsive, accessible front-end design without heavy frameworks</li>
+        <li>Presenting engineering projects clearly to technical recruiters</li>
+      </ul>
+      <a class="btn" href="https://github.com/adilahamedwork-oss" target="_blank" rel="noopener">View on GitHub ↗</a>
+    </article>
+
+  </div>
+</section>
+
+<!-- CURRENT LEARNING -->
+<section id="learning">
+  <p class="label">CURRENT LEARNING</p>
+  <h2>Always <span class="grad2">practising</span></h2>
+  <div class="grid cols-2">
+    <div class="card">
+      <h3>Linux Journey</h3>
+      <p>Working through Linux Journey modules to build shell navigation and system administration fluency.</p>
+      <div class="tags">Linux · Command Line</div>
+    </div>
+    <div class="card b">
+      <h3>OverTheWire: Bandit</h3>
+      <p>Practising Linux commands, file permissions, and data filtering through hands-on wargame challenges.</p>
+      <div class="tags">Linux · SSH · Permissions</div>
+    </div>
+    <div class="card c">
+      <h3>OverTheWire: Natas</h3>
+      <p>Exploring web security fundamentals to understand HTTP headers, auth flows, and request structures.</p>
+      <div class="tags">Web Basics · HTTP</div>
+    </div>
+    <div class="card">
+      <h3>Cisco Networking Basics</h3>
+      <p>Revising core networking fundamentals (subnets, routing, OSI model) that underpin cloud VPC architecture.</p>
+      <div class="tags">Networking · Cisco</div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <p class="label">CERTIFICATIONS &amp; TRAINING</p>
+  <h2>Credentials &amp; <span class="grad">training</span></h2>
+  <ul class="certs">
+    <li class="cert"><div><b>EC-Council Certified Ethical Hacker (CEH)</b><small>Certification</small></div></li>
+    <li class="cert"><div><b>LetsDefend: SOC Fundamentals</b><small>Completed training</small></div></li>
+    <li class="cert"><div><b>TryHackMe</b><small>Hands-on cybersecurity labs (ongoing practice)</small></div></li>
+    <li class="cert"><div><b>PortSwigger Web Security Academy</b><small>Web security labs (ongoing practice)</small></div></li>
+  </ul>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <p class="label">EDUCATION</p>
+  <div class="card b">
+    <h3>B.Sc. Computer Science</h3>
+    <p class="meta">The New College, Chennai · 2022 – 2025</p>
+    <div class="tags">Computer Networks · Operating Systems · DBMS · Software Engineering · Data Structures &amp; OOP</div>
+  </div>
+  <p class="meta" style="margin-top:18px">Languages: English, Tamil, Hindi (Fluent)</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-box">
+    <p class="label">CONTACT</p>
+    <h2>Let's <span class="grad">work together</span></h2>
+    <p>I'm available immediately for entry-level DevSecOps, Cloud Support, and DevOps roles. Send me a message or review my resume.</p>
+    <a class="btn main" href="mailto:adil.ahamedwork@gmail.com">Email me</a>
+    <a class="btn" href="https://www.linkedin.com/in/adil-ahamed-b-13b935279" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a class="btn" href="https://github.com/adilahamedwork-oss" target="_blank" rel="noopener">GitHub ↗</a>
+    <a class="btn" href="resume.pdf" target="_blank" rel="noopener">View Resume ↗</a>
+    <p class="meta" style="margin:14px 0 0">adil.ahamedwork@gmail.com · Chennai, India</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <nav>
+    <a href="https://github.com/adilahamedwork-oss" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/adil-ahamed-b-13b935279" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:adil.ahamedwork@gmail.com">Email</a>
+    <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+    <a href="https://adil-ahamed-b.vercel.app">Portfolio</a>
+  </nav>
+  <p style="margin:14px 0 0;font-size:.9rem;color:#94a3b8">© 2026 Adil Ahamed B · Chennai, India</p>
+</footer>
+
+<script>
+  var btn = document.getElementById('menuBtn');
+  var list = document.getElementById('navList');
+  if (btn && list) {
+    btn.addEventListener('click', function() {
+      list.classList.toggle('open');
+    });
+    list.addEventListener('click', function(e) {
+      if (e.target.tagName === 'A') {
+        list.classList.remove('open');
+      }
+    });
+  }
+</script>
+</body>
+</html>
